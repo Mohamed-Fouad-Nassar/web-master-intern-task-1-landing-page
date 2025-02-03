@@ -142,7 +142,7 @@ button {
 
 /* header section */
 header {
-  padding: 10px 0;
+  padding: 12px 0;
   background-color: var(--header-bg);
   color: var(--sec-text-color);
 
@@ -162,18 +162,24 @@ header {
     display: none;
     color: inherit;
     background-color: transparent;
-    i {
-      font-size: 1.75rem;
+
+    flex-direction: column;
+    gap: 7px;
+
+    span {
+      display: block;
+      width: 30px;
+      height: 3px;
+      border-radius: 5px;
+      background-color: var(--sec-text-color);
     }
   }
+
   @media (max-width: 991px) {
     .mobile-menu-toggle {
-      display: block;
+      display: flex;
     }
     .contact {
-      display: none;
-    }
-    nav {
       display: none;
     }
   }
@@ -201,11 +207,37 @@ header nav {
         display: block;
         padding: 7px 20px;
         border-radius: 3px;
+        border-bottom: 3px solid transparent;
 
         &.active,
         &:hover {
           background-color: rgba(0, 0, 0, 0.06);
-          border-bottom: 3px solid rgba(0, 0, 0, 0.3);
+          border-color: rgba(0, 0, 0, 0.3);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    & {
+      padding: 40px 15px;
+      position: fixed;
+      top: 74px;
+      right: -300px;
+      width: 300px;
+      height: 100dvh;
+      z-index: 1000;
+      background-color: var(--header-bg);
+      transition: all 300ms;
+
+      &.open {
+        right: 0;
+      }
+
+      ul {
+        flex-direction: column;
+        li {
+          width: 100%;
         }
       }
     }
@@ -394,6 +426,7 @@ main {
   display: flex;
   align-items: center;
   background-image: url("./assets/contact-sec-bg.png");
+  background-color: rgba(var(--main-color-opacity), 0.5);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -463,6 +496,7 @@ main {
   justify-content: center;
   align-items: center;
   background-image: url("./assets/repair-replacement-sec-bg.png");
+  background-color: rgba(0, 0, 0, 0.5);
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -552,6 +586,7 @@ main {
 
   img {
     width: 100%;
+    mix-blend-mode: luminosity;
   }
 
   h3 {
